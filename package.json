@@ -1,0 +1,23 @@
+{
+  "name": "krishimonitor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/netlify-build.js",
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@google/genai": "2.31.0",
+    "dotenv": "18.0.9",
+    "express": "5.3.0",
+    "mongoose": "9.11.4",
+    "multer": "2.5.0",
+    "nodemailer": "^10.2.1",
+    "sharp": "0.35.5"
+  }
+}

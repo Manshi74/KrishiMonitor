@@ -1,0 +1,176 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b2b">
+  <meta name="description" content="KrishiMonitor by RojTech &mdash; smart agriculture tools for crop health, pest monitoring and farm insights.">
+  <title>KrishiMonitor </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <script defer src="earth-background.js"></script>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="KrishiMonitor home"><span class="brand-mark" aria-hidden="true">&#10038;</span><span>Krishi<span class="brand-light">Monitor</span><small> &middot; </small></span></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="nav-links" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="nav-links">
+        <a href="#home">Home</a><a href="#dashboard">Dashboard</a><a href="#my-crops">My Crops</a><a href="#detection">AI Detection</a><a href="#pests">Pest Monitoring</a><a href="#weather">Weather</a><a href="#risk-map">Risk Monitor</a><a href="#ipm">IPM Advisory</a><a href="#experts">Experts</a><a href="#reports">Reports</a><a href="#notifications">Notifications</a><a href="#plans">Plans</a><button class="lang-toggle" id="lang-toggle" type="button">हिंदी</button>
+        <a class="nav-login" href="#login" data-login>Log in <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/farming-poster.svg" aria-hidden="true">
+        <!-- Pexels free stock clip: Farmers working in crop field during golden hour in North India (clip 18883013). -->
+        <source src="assets/farming-video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-shade"></div>
+      <canvas class="hero-earth-canvas" id="hero-earth-canvas" aria-hidden="true"></canvas>
+      <div class="hero-leaves" aria-hidden="true"><span>&#127811;</span><span>&#127810;</span><span>&#127811;</span></div>
+      <div class="hero-content wrap">
+        <div class="eyebrow eyebrow-light"><span class="pulse-dot"></span> TECHNOLOGY ROOTED IN THE LAND</div>
+        <h1 id="hero-title">Smarter farming.<br><em>Healthier harvests.</em></h1>
+        <p>AI-powered crop disease detection, pest monitoring, and early warnings for a more confident growing season.</p>
+        <div class="hero-actions"><a class="button button-lime" href="#detection">Analyze my crop <span>&#8599;</span></a><a class="button button-glass" href="#dashboard">Explore dashboard <span>&#8595;</span></a></div>
+        <div class="hero-note"><span class="hero-note-icon">&#10038;</span><span>Better insights for every growing season.</span></div>
+      </div>
+      <a class="scroll-cue" href="#intro" aria-label="Scroll to learn more"><span></span> SCROLL TO EXPLORE</a>
+      <div class="hero-index"><strong>01</strong><span> / 04</span></div>
+    </section>
+
+    <section class="intro section wrap" id="intro">
+      <div class="intro-kicker"><span class="section-number">01</span><span>GROW WITH CLARITY</span></div>
+      <div class="intro-main"><h2>Good decisions<br>start <em>in the field.</em></h2><div class="intro-copy"><p>KrishiMonitor brings crop health signals and farm insights together in one calm, clear workspace. Spot issues sooner and know what to do next.</p><a class="text-link" href="#about">Discover our approach <span>&#8599;</span></a></div></div>
+      <div class="feature-row">
+        <article class="feature"><span class="feature-icon">&#128337;</span><h3>Crop health</h3><p>Get ready to connect leaf images to expert-backed AI analysis.</p><span class="feature-arrow">&#8599;</span></article>
+        <article class="feature"><span class="feature-icon">&#9203;</span><h3>Field conditions</h3><p>Bring weather context and local observations into your decisions.</p><span class="feature-arrow">&#8599;</span></article>
+        <article class="feature"><span class="feature-icon">&#9673;</span><h3>Early signals</h3><p>Keep watch for verified pest and disease advisories in your area.</p><span class="feature-arrow">&#8599;</span></article>
+      </div>
+    </section>
+
+    <section class="detection section" id="detection">
+      <div class="wrap detection-grid">
+        <div class="detection-copy"><div class="eyebrow"><span class="section-number">02</span> CROP DISEASE DETECTION</div><h2>A closer look<br>at <em>crop health.</em></h2><p>Send a clear crop photo to Krishi AI for a preliminary assessment. A photo alone cannot confirm a disease, so uncertain findings will be marked clearly.</p>
+          <ul class="check-list"><li><span>&#10003;</span> JPG, PNG or WebP image</li><li><span>&#10003;</span> Up to 10 MB per image</li><li><span>&#10003;</span> Photo is not saved with your report</li></ul>
+          <div class="backend-note"><span>i</span><p>AI findings are preliminary. Confirm treatment decisions with a local agriculture expert.</p></div>
+        </div>
+        <div class="upload-card">
+          <form id="crop-form" novalidate><div class="analysis-fields"><label>Crop<select id="analysis-crop" required><option value="">Select crop</option><option>Wheat</option><option>Rice</option><option>Maize</option><option>Tomato</option><option>Potato</option><option>Cotton</option><option>Soybean</option><option>Onion</option><option>Chilli</option><option>Mango</option><option>Banana</option><option>Grapes</option><option>Other crops</option></select></label><label>Affected part<select id="affected-part"><option>Leaf</option><option>Stem</option><option>Fruit</option><option>Root</option><option>Flower</option><option>Visible pest</option><option>Unknown</option></select></label><label>Growth stage (optional)<select id="analysis-stage"><option value="">Not specified</option><option>Seedling</option><option>Vegetative growth</option><option>Flowering</option><option>Fruit or grain development</option><option>Harvest ready</option></select></label><label>Location (optional)<input id="analysis-location" type="text" maxlength="120" placeholder="Village, district or state"></label><label>Report language<select id="analysis-language"><option value="hi" selected>Hindi</option><option value="en">English</option></select></label></div>
+            <div class="capture-controls"><button class="button button-dark" type="button" id="start-camera">Take Crop Photo</button><button class="button button-outline" type="button" id="choose-gallery">Choose from Gallery</button><button class="button button-outline" type="button" id="retake-photo" hidden>Retake Photo</button></div>
+            <div class="camera-panel" id="camera-panel" hidden><video id="camera-preview" autoplay muted playsinline aria-label="Live camera preview of the crop"></video><div class="camera-actions"><button class="button button-dark" type="button" id="capture-photo">Capture Photo</button><button class="button button-outline" type="button" id="close-camera">Close Camera</button><button class="button button-outline" type="button" id="use-camera-fallback" hidden>Use device camera</button></div><p id="camera-message" role="status" aria-live="polite"></p></div>
+            <input class="visually-hidden" id="camera-fallback-input" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" capture="environment" tabindex="-1" aria-label="Take a crop photo with the rear camera">
+            <p class="capture-guidance">Frame the affected leaf, stem, fruit, or whole plant. Use daylight, hold the phone steady, and keep the affected area in focus.</p>
+            <label class="drop-zone" id="drop-zone" for="crop-image" tabindex="0">
+              <input id="crop-image" name="crop-image" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+              <span class="upload-icon">&#8593;</span><strong>Drop your crop image here</strong><span class="upload-or">or <u>browse files</u></span><small>PNG, JPG, WEBP &middot; max 10 MB</small>
+            </label>
+            <div class="preview-wrap" id="preview-wrap" hidden><img id="image-preview" alt="Selected crop leaf preview"><button type="button" class="remove-image" id="remove-image" aria-label="Remove selected image">&times;</button><span id="file-name"></span></div>
+            <div class="form-message" id="upload-message" role="status" aria-live="polite">Choose an image to prepare an analysis request.</div>
+            <label class="consent-row"><input id="analysis-consent" type="checkbox"> I agree to send this image to the configured AI analysis service. The service may process the image.</label>
+            <label class="consent-row"><input id="save-analysis-report" type="checkbox"> Save this assessment to my signed-in account. The photo will not be saved.</label>
+            <button class="button button-dark upload-submit" type="submit" id="analyze-button" disabled>Analyze Crop <span>&#8599;</span></button>
+          </form>
+          <div class="result-placeholder" id="analysis-result" aria-live="polite"><span class="result-leaf">&#10038;</span><span>Your analysis status will appear here.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard section wrap" id="dashboard">
+      <canvas class="dashboard-data-canvas" id="dashboard-data-canvas" aria-hidden="true"></canvas>
+      <div class="dashboard-heading"><div class="dashboard-title-group"><div class="eyebrow dashboard-eyebrow"><span class="section-number">03</span> FARMER DASHBOARD</div><h2 class="dashboard-title">Your farm, <em>at a glance.</em></h2></div><span class="sample-badge"><i></i> SAMPLE DATA</span></div>
+      <p class="dashboard-intro">A preview of the insights you&rsquo;ll see when your farm is connected. All numbers below are illustrative sample data. Earth and satellite effects are decorative, not live farm monitoring.</p>
+      <div class="metrics-grid">
+        <article class="metric-card"><span class="metric-label">Crop reports</span><strong>24</strong><span class="metric-foot">Across 3 fields <b>&#8599;</b></span><span class="metric-symbol">&#9638;</span></article>
+        <article class="metric-card"><span class="metric-label">Healthy reports</span><strong>18</strong><span class="metric-foot">75% of reports <b>&#8599;</b></span><span class="metric-symbol green-symbol">&#10003;</span></article>
+        <article class="metric-card"><span class="metric-label">Disease alerts</span><strong>03</strong><span class="metric-foot">Sample overview <b>&#8599;</b></span><span class="metric-symbol amber-symbol">&#9203;</span></article>
+        <article class="metric-card"><span class="metric-label">Pest alerts</span><strong>02</strong><span class="metric-foot">Sample overview <b>&#8599;</b></span><span class="metric-symbol">&#9678;</span></article>
+      </div>
+      <div class="dashboard-panels">
+        <article class="panel recent-panel"><div class="panel-heading"><div><span class="panel-eyebrow">FIELD ACTIVITY</span><h3>Recent crop analyses</h3></div><a href="#detection" class="text-link">View all </a></div>
+          <div class="table-wrap"><table><thead><tr><th>FIELD</th><th>CROP</th><th>DATE</th><th>STATUS</th></tr></thead><tbody><tr><td><span class="crop-thumb">&#10038;</span>North plot</td><td>Wheat</td><td>12 Oct</td><td><span class="status-pill status-healthy">Healthy</span></td></tr><tr><td><span class="crop-thumb crop-thumb-2">&#10038;</span>Canal side</td><td>Tomato</td><td>10 Oct</td><td><span class="status-pill status-watch">Monitor</span></td></tr><tr><td><span class="crop-thumb crop-thumb-3">&#10038;</span>East acre</td><td>Cotton</td><td>08 Oct</td><td><span class="status-pill status-healthy">Healthy</span></td></tr></tbody></table></div><div class="sample-caption">Example rows only &mdash; no real farm records are connected.</div>
+        </article>
+        <article class="panel health-panel"><div class="panel-heading"><div><span class="panel-eyebrow">CROP HEALTH</span><h3>Field snapshot</h3></div><span class="panel-menu">&middot;&middot;&middot;</span></div><div class="health-ring"><div><strong>75%</strong><small>sample health</small></div></div><div class="health-legend"><span><i class="legend-green"></i> Healthy <b>18</b></span><span><i class="legend-yellow"></i> Monitor <b>4</b></span><span><i class="legend-red"></i> Attention <b>2</b></span></div><div class="sample-caption">Illustrative only</div></article>
+      </div>
+    </section>
+
+    <section class="weather-section section" id="weather">
+      <div class="wrap weather-grid">
+        <div class="weather-intro"><div class="eyebrow eyebrow-light"><span class="section-number">04</span> WEATHER & CONDITIONS</div><h2>Know what&rsquo;s<br><em>in the forecast.</em></h2><p>Choose a farm location to see current conditions and a five-day forecast from OpenWeather.</p>
+          <form class="weather-location-form" id="weather-location-form"><label for="weather-location-query">Search town or city</label><div><input id="weather-location-query" name="location" maxlength="100" required placeholder="e.g. Bengaluru, Karnataka"><button class="button button-lime" type="submit" id="weather-search">Find</button></div><button class="weather-geolocate" id="weather-geolocate" type="button">Use my current location</button><button class="weather-geolocate" id="weather-refresh" type="button">Refresh selected weather</button><p id="weather-location-message" role="status" aria-live="polite"></p></form>
+          <div class="weather-location-results" id="weather-location-results" role="list"></div>
+        </div>
+        <div class="weather-card"><div class="weather-card-top"><div><span class="panel-eyebrow">LOCAL WEATHER</span><h3 id="weather-location">Choose a farm location</h3></div><span class="weather-icon">&#9729;</span></div>
+          <div class="weather-state" id="weather-state"><span class="weather-state-icon">&#9203;</span><strong>Weather data not loaded</strong><p>Search for a town or allow location access to request real conditions.</p></div>
+          <div class="weather-stats"><div><span>Temperature</span><strong>&mdash;</strong></div><div><span>Humidity</span><strong>&mdash;</strong></div><div><span>Rainfall</span><strong>&mdash;</strong></div></div>
+          <p class="weather-extra" id="weather-extra"></p><p class="weather-updated" id="weather-updated">Forecast time and source appear with the weather data.</p>
+          <div class="weather-attribution">Weather data by <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer">OpenWeather</a>.</div>
+          <div class="weather-forecast" id="weather-forecast" aria-live="polite"></div>
+          <div class="weather-foot"><span class="state-dot"></span><span id="weather-foot-status">location selected</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="risk-section section wrap" id="risk-map"><div class="risk-heading"><div><div class="eyebrow"><span class="section-number">05</span> AGRICULTURE INTELLIGENCE MAP</div><h2>See the land <em>from above.</em></h2></div><p>Explore real map tiles. Farm and crop-risk layers appear only when a connected service provides verified data.</p></div>
+      <div class="map-shell" id="agriculture-map-shell"><div class="map-toolbar"><div class="map-toolbar-summary"><strong>Regional overview · India</strong><span id="map-status">OpenStreetMap · loading interactive controls</span></div><div class="map-controls"><label class="map-layer-control" for="map-basemap">Basemap<select id="map-basemap" aria-label="Choose map basemap"><option value="street">Street map</option><option value="satellite" disabled>Satellite imagery</option></select></label><button type="button" class="map-action-button" id="map-locate">Locate me</button></div></div><div class="map-scan" aria-hidden="true"></div><div id="risk-map-canvas" role="application" aria-label="Interactive map. Base map tiles are real. Crop-risk markers are shown only when a verified service is connected."><iframe class="map-embedded-frame" title="Interactive OpenStreetMap view centered on India" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.openstreetmap.org/export/embed.html?bbox=68.2%2C6.5%2C97.4%2C35.6&amp;layer=mapnik&amp;marker=22.5%2C79"></iframe></div><div class="map-visual-note">Decorative scan ·</div><div class="map-empty" id="map-empty" hidden><span class="map-empty-icon">&#128205;</span><strong id="map-empty-title">Regional map unavailable</strong><p id="map-empty-copy">Check your internet connection and retry.</p><button type="button" class="text-link" id="map-retry">Retry map &#8635;</button></div></div>
+      <div class="map-disclaimer"><span>BASEMAP:</span> Street tiles by <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>. Satellite imagery needs a MapTiler key; no verified crop-risk layer is connected.</div>
+    </section>
+
+    <section class="pest-strip" id="pests"><div class="wrap pest-inner"><div class="pest-badge">&#10038;</div><div><span class="panel-eyebrow">PEST MONITORING</span><h2>Catch the early signs.</h2><p>Verified pest advisories will appear here after a trusted data source is connected.</p></div><span class="pest-status"><i></i> SERVICE NOT CONNECTED</span></div></section>
+    <section class="about section wrap" id="about"><div class="about-mark">&#10038;</div><div><div class="eyebrow">ABOUT KRISHIMONITOR</div><h2>Technology that<br><em>grows with you.</em></h2></div><p>Built by Team RojTech  for a future where every farmer has clearer information, timely guidance, and healthier growing seasons. This frontend is ready to connect to secure agriculture services when they are available.</p></section>
+    <section class="section wrap app-section" id="my-crops"><div class="eyebrow">MY CROPS</div><h2>Track your <em>fields.</em></h2><p class="section-lead">Sign in to keep crop records private to your account. If server storage is unavailable, entries stay in this browser.</p><form id="crop-record-form" class="record-form"><label>Crop name<input name="name" required maxlength="80"></label><label>Variety<input name="variety" maxlength="80"></label><label>Area (acres)<input name="area" type="number" min="0" max="100000" step="0.1" required></label><label>Planting date<input name="date" type="date"></label><label>Growth stage<input name="stage" maxlength="80"></label><button class="button button-dark" type="submit">Add crop</button></form><p id="crop-record-status" role="status" class="section-lead"></p><div id="crop-list" class="record-grid" aria-live="polite"></div></section>
+    <section class="section alt-section app-section" id="ipm"><div class="wrap"><div class="eyebrow">IPM ADVISORY</div><h2>Preventive <em>checklist.</em></h2><p class="section-lead">General monitoring steps; verify crop-specific actions with a local agriculture expert.</p><div class="check-grid"><label><input type="checkbox" data-check="scout"> Inspect plants and leaf undersides regularly.</label><label><input type="checkbox" data-check="record"> Record symptoms, location, and date.</label><label><input type="checkbox" data-check="debris"> Remove diseased debris when safe and appropriate.</label><label><input type="checkbox" data-check="verify"> Verify the issue before choosing control measures.</label></div><button id="save-checklist" class="button button-dark" type="button">Save checklist</button><p class="sample-caption">No pesticide dosage or unverified outbreak advice is provided.</p></div></section>
+    <section class="section wrap app-section" id="experts"><div class="eyebrow">EXPERT CONSULTATION</div><h2>Ask an <em>expert.</em></h2><p class="section-lead">Prototype form. Requests are saved locally and are not sent to an expert.</p><form id="expert-form" class="record-form"><label>Crop<input name="crop" required maxlength="50"></label><label>Urgency<select name="urgency"><option>Routine</option><option>Soon</option><option>Urgent</option></select></label><label class="wide-field">Problem description<textarea name="details" required maxlength="1000"></textarea></label><label>Contact preference<select name="contact"><option>In-app update</option><option>Phone call requested</option></select></label><label>Attach an image<input name="attachment" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"></label><button class="button button-dark" type="submit">Save request</button></form><div id="expert-status" role="status"></div></section>
+    <section class="section alt-section" id="reports"><div class="wrap app-section"><div class="eyebrow">REPORTS & HISTORY</div><h2>Analysis <em>requests.</em></h2><p class="section-lead">AI reports are saved only after a successful assessment and your consent. Crop photos are never stored in report records.</p><div class="report-toolbar"><input id="report-search" type="search" placeholder="Search crop, status, or details" aria-label="Search report history"><select id="report-urgency" aria-label="Filter by urgency"><option value="">All items</option><option>Routine</option><option>Soon</option><option>Urgent</option></select><button id="print-reports" class="button button-dark" type="button">Print</button></div><p id="report-status" role="status" class="section-lead"></p><div id="report-list" class="record-grid" aria-live="polite"></div></div></section>
+    <section class="section wrap app-section" id="notifications"><div class="panel-heading"><div><div class="eyebrow">NOTIFICATIONS</div><h2>Updates & <em>alerts.</em></h2></div><button id="mark-read" class="button button-dark" type="button">Mark all read</button></div><div id="notification-list" class="notification-box" aria-live="polite"><p>.</p></div></section>
+    <section class="section alt-section" id="plans"><div class="wrap app-section"><div class="eyebrow">PRICING</div><h2>Plans for every <em>season.</em></h2><div class="plan-grid"><article class="plan-card"><h3>Starter Farmer</h3><strong>0 <small>/ Lifetime</small></strong><p>5 free AI scans &middot; Basic crop analysis &middot; Basic weather</p><button data-plan="Starter Farmer" class="button button-dark">Select demo plan</button></article><article class="plan-card"><h3>Full Crop Season</h3><strong>199 <small>/ 4 Months</small></strong><p>Analysis &middot; Weather alerts &middot; Consultation credits &middot; Reports</p><button data-plan="Full Crop Season" class="button button-dark">Select demo plan</button></article><article class="plan-card"><h3>Progressive Farmer</h3><strong>499 <small>/ Year</small></strong><p>Extended monitoring &middot; Priority consultation &middot; Advisory</p><button data-plan="Progressive Farmer" class="button button-dark">Select demo plan</button></article></div><p class="sample-caption">Proposed prices only. No payment or paid benefits are activated.</p></div></section>
+    <section class="section wrap app-section" id="settings"><div class="eyebrow">SETTINGS</div><h2>App <em>settings.</em></h2><p class="section-lead">.</p><button class="button button-dark" id="language-setting" type="button">Change language</button><p class="sample-caption">.</p></section>
+  </main>
+  <nav class="mobile-bar" aria-label="Quick navigation"><a href="#dashboard">Home</a><a href="#my-crops">My Crops</a><a href="#detection">Analyze</a><a href="#reports">Reports</a><a href="#plans">More</a></nav>
+  <footer class="footer" id="login"><div class="wrap footer-main"><a class="brand brand-footer" href="#home"><span class="brand-mark">&#10038;</span><span>Krishi<span class="brand-light">Monitor</span><small>Team RojTech</small></span></a><p>Smart farming, healthy future.</p><div class="footer-links"><a href="#detection">Crop detection</a><a href="#weather">Weather</a><a href="#risk-map">Risk map</a><a href="mailto:hello@rojtech.com">Contact</a></div><a class="button button-outline" href="#top" data-login>Log in / Sign up <span>&#8599;</span></a></div><div class="wrap footer-bottom"><span>&copy; <span id="year"></span> Manshi . Ekta . Built for better growing.</span><span>AI-based smart agriculture</span></div></footer>
+  <section class="account-overlay" id="account-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="account-title">
+    <div class="account-card"><button type="button" class="account-close" id="account-close" aria-label="Close account dialog">&times;</button><span class="eyebrow">KRISHIMONITOR ACCOUNT</span><h2 id="account-title">Welcome back.</h2><p class="account-intro" id="account-intro">Sign in to access your private farm records.</p>
+      <form id="account-form" class="account-form" novalidate><div id="account-fields"></div><p class="account-message" id="account-message" role="status" aria-live="polite"></p><button class="button button-dark account-submit" id="account-submit" type="submit">Continue</button></form>
+      <div class="account-links" id="account-links"></div><div id="account-profile" class="account-profile" hidden></div>
+    </div>
+  </section>
+  <div class="farm-chat" id="farm-chat">
+    <button class="farm-chat-launch" id="farm-chat-launch" type="button" aria-label="Open KrishiMonitor farm assistant" aria-controls="farm-chat-panel" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.75A2.75 2.75 0 0 1 6.75 3h10.5A2.75 2.75 0 0 1 20 5.75v7.5A2.75 2.75 0 0 1 17.25 16H11l-4.8 4v-4.16A2.75 2.75 0 0 1 4 13.25z"/><path d="M8 8h8M8 11.5h5"/></svg><span>Ask Krishi AI</span>
+    </button>
+    <section class="farm-chat-panel" id="farm-chat-panel" aria-labelledby="farm-chat-title" role="dialog" aria-modal="false" hidden>
+      <header class="farm-chat-header"><div class="farm-chat-mark" aria-hidden="true">&#10038;</div><div class="farm-chat-heading"><h2 id="farm-chat-title">KrishiMonitor Assistant</h2><p><i></i><span id="farm-chat-service">Checking AI service…</span></p></div><label class="farm-chat-language"><span class="visually-hidden">Chat language</span><select id="farm-chat-language"><option value="hi">हिंदी</option><option value="en">English</option></select></label><button type="button" id="farm-chat-clear" class="farm-chat-icon-button" aria-label="Clear chat" title="Clear chat">&#8635;</button><button type="button" id="farm-chat-close" class="farm-chat-icon-button" aria-label="Close chat">&times;</button></header>
+      <div class="farm-chat-notice">General guidance only; verify treatments locally. Photos go to Google Gemini and aren’t saved by this site. Google’s free tier may use submitted content to improve products. <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer">Review data terms</a>.</div>
+      <div class="farm-chat-messages" id="farm-chat-messages" role="log" aria-live="polite" aria-relevant="additions text" tabindex="0">
+        <article class="farm-chat-message assistant-message"><span class="message-avatar" aria-hidden="true">&#10038;</span><div class="message-bubble">Namaste! I can help with crop care, pests, irrigation, and plant photos. What’s happening in your field? <span lang="hi">नमस्ते! फसल की देखभाल, कीट, सिंचाई और पौधों की तस्वीर के बारे में पूछें।</span></div></article>
+      </div>
+      <div class="farm-chat-suggestions" id="farm-chat-suggestions" aria-label="Quick questions"><button type="button">Identify Crop Disease</button><button type="button">Pest Problem</button><button type="button">Fertilizer Advice</button><button type="button">How to Save My Crop</button></div>
+      <div class="farm-chat-typing" id="farm-chat-typing" role="status" aria-label="Assistant is replying" hidden><span></span><span></span><span></span><small>Checking your question…</small></div>
+      <div class="farm-chat-image-preview" id="farm-chat-image-preview" hidden><img id="farm-chat-image" alt="Selected crop photo preview"><div><strong id="farm-chat-filename"></strong><small>Photo stays in this chat session only</small></div><button type="button" id="farm-chat-remove-image" aria-label="Remove photo">&times;</button></div>
+      <form class="farm-chat-form" id="farm-chat-form">
+        <label class="farm-chat-consent" id="farm-chat-consent" hidden><input type="checkbox" id="farm-chat-consent-check"><span>।</span></label>
+        <div class="farm-chat-input-row"><label class="farm-chat-attach" for="farm-chat-gallery" title="Choose photo from gallery" aria-label="Choose photo from gallery">&#128247;</label><input id="farm-chat-gallery" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" hidden><label class="farm-chat-camera" for="farm-chat-camera" title="Take a crop photo" aria-label="Take a crop photo">&#128247;<small>+</small></label><input id="farm-chat-camera" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" capture="environment" hidden><textarea id="farm-chat-input" rows="1" maxlength="2000" placeholder="Ask about your crop… / अपनी फसल के बारे में पूछें…" aria-label="Message KrishiMonitor Assistant"></textarea><button class="farm-chat-send" id="farm-chat-send" type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 4 17 8-17 8 3-8zM7 12h14"/></svg></button></div>
+        <p class="farm-chat-upload-guidance" id="farm-chat-upload-guidance">One JPG, PNG, or WEBP image · up to 10 MB · 256 × 256 to 4096 × 4096 px. 1024 px or larger is recommended.</p>
+        <p class="farm-chat-hint" id="farm-chat-hint">Enter to send · Shift+Enter for a new line</p><p class="farm-chat-error" id="farm-chat-error" role="alert" hidden></p>
+      </form>
+    </section>
+  </div>
+  <script>
+    const localKrishiDevelopment = ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname)
+      && ["5500", "5501"].includes(location.port);
+    const localKrishiApi = localKrishiDevelopment
+      ? `${location.protocol}//${location.hostname}:3101`
+      : "";
+    // Production uses same-origin /api routes, proxied by Netlify to the Express host.
+    // The deployed backend origin stays in Netlify build settings, never in browser code.
+    window.KRISHI_API_BASE_URL = localKrishiApi;
+    window.KRISHI_CHAT_API_BASE = localKrishiApi;
+  </script>
+  <script defer src="chatbot.js"></script>
+</body>
+</html>
